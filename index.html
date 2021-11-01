@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/final.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <title>Frontend Mentor | Time tracking dashboard</title>
+
+  <style> 
+
+  #audifono-move {
+
+  	position: relative;
+  	animation-name: arriba-abajo;
+  	animation-duration: 4s;
+  	animation-timing-function: ease-in-out;
+  	animation-iteration-count: infinite;
+
+  }
+
+  @keyframes arriba-abajo {
+
+  	0% {
+
+  		bottom: 0;
+  	}
+
+  	50% {
+
+  		bottom: 25px;
+  	}
+
+  	100% {
+
+  		bottom: 0;
+  	}
+  }
+
+  #fondo1 {
+
+  	background-image: url(images/inicio_fondo.png); 
+  	background-repeat: no-repeat; 
+  	background-position: top right; 
+  	background-size: 30rem;
+  }
+
+
+  	input::placeholder {
+
+  		color: #fff;
+  	}
+
+    #cus:focus + label {
+
+      position: relative;
+      bottom: 2.9rem;
+      color: rgb(52, 211, 153);
+      font-size: 0.85rem;
+      transition: .1s;
+    }
+
+    footer {
+
+    	background-image: url(images/footer-fondo.png);
+    	background-repeat: no-repeat;
+    	background-position: center;
+    	background-size: cover;
+    }
+
+  	@media screen and (min-width: 430px) {
+
+  		.comillas {
+
+  		background-image: url(images/comillas.png);
+  		background-repeat: no-repeat;
+  		background-position: 97% 8%;
+  		background-size: 6rem;   
+  		}
+  	}
+
+  	@media screen and (min-width: 640px) {
+
+  		#fondo1 {
+
+  			background-size: 45rem;
+  		}
+
+  		#fondo2 {
+
+  			background-image: url(images/fondo_2.png);
+  			background-repeat: no-repeat;
+  			background-position: center;
+  			background-size: cover;
+  		}
+  	}
+
+  	@media screen and (min-width: 1280px) {
+
+  		#fondo1 {
+
+  			background-size: 65rem;
+  		}
+
+  		.comillas {
+
+  			background-size: 5.4rem;
+  		}
+  	}
+  
+  </style> <!--LOS FONDOS-->
+
+</head>
+<body>
+
+  <div class="mx-auto">
+    <header>
+      <nav class="flex justify-between items-center bg-white shadow-md py-4 px-8 w-full fixed z-10">
+        <div>
+          <h1 class="font-bold"><span class="uppercase text-green-400">Audio</span>Yack</h1>
+        </div>
+        <div class="sm:hidden" id="dis">
+          <button class="hover:text-green-400 hover:pointer" id="boton">
+            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px">
+              <path d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z"/>
+            </svg>
+          </button>
+          <button class="hidden hover:text-green-400 hover:pointer" id="equis">
+            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px">
+              <path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="hidden w-full flex flex-col gap-5 absolute z-50 bg-white top-16 text-lg shadow left-0 pl-4 py-4 sm:hidden" id="enlace"> 
+          <a href="#fondo1" class="hover:text-green-400 hover:pointer">Inicio</a>
+          <a href="#funciones" class="hover:text-green-400 hover:pointer">Detalles</a>
+          <a href="#fondo2" class="hover:text-green-400 hover:pointer">Acerca Del</a>
+          <a href="#suscribete" class="hover:text-green-400 hover:pointer">Opiniones</a>
+          <a href="#planes" class="hover:text-green-400 hover:pointer">Precios</a>
+          <a href="#contactos" class="hover:text-green-400 hover:pointer">Contactos</a>
+        </div>
+        <div class="hidden sm:flex gap-5">
+          <a href="#fondo1" class="hover:text-green-400 hover:pointer">Inicio</a>
+          <a href="#funciones" class="hover:text-green-400 hover:pointer">Detalles</a>
+          <a href="#fondo2" class="hover:text-green-400 hover:pointer">Acerca Del</a>
+          <a href="#suscribete" class="hover:text-green-400 hover:pointer">Opiniones</a>
+          <a href="#planes" class="hover:text-green-400 hover:pointer">Precios</a>
+          <a href="#contactos" class="hover:text-green-400 hover:pointer">Contactos</a>
+        </div>
+      </nav>
+      <div class="h-auto relative top-8 z-0 flex flex-col sm:h-screen" id="fondo1">
+      	<div class="sm:flex sm:items-center sm:mx-4 sm:mt-40 lg:mx-20 xl:mt-20">
+        <div class="relative top-2 sm:order-last sm:-top-4">
+          <img src="images/audifono.png" alt="audifono1" class="sm:w-96 xl:w-full" id="audifono-move">
+        </div>
+        <div class="mx-3 mt-6 sm:w-7/12">
+          <div class="uppercase text-2xl sm:text-4xl xl:text-5xl xl:font-semibold">
+            <h2>Monster zxy <span class="text-green-400 sm:leading-loose">auriculares</span></h2>
+          </div>
+          <div class="mt-3 text-sm xl:text-lg">
+            <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero non deserunt eaque quaerat ducimus, voluptatem corrupti quae est voluptates perferendis?</p>
+          </div>
+          <div>
+            <button class="mt-4 bg-gradient-to-r from-green-900 to-green-400 rounded-full px-6 py-2 text-white shadow-sm xl:mt-6 xl:text-lg">Detalles</button>
+          </div>
+      	</div>
+      	</div>
+	</div>
+    </header> <!--HEADER-->
+    <main class="mt-16">
+      <section class="bg-gray-100 h-auto py-10 text-center" id="funciones">
+        <h3 class="uppercase text-green-700 text-2xl font-bold xl:text-3xl xl:font-semibold">Funciones</h3>
+        <div class="grid grid-cols-1 gap-8 my-8 place-items-center sm:grid-cols-2 sm:gap-y-5 sm:gap-x-0 xl:grid-cols-3 xl:mx-20">
+          <div class="bg-white w-11/12 h-auto px-4 py-6 grid place-items-center shadow-md sm:py-4">
+            <img src="images/icono3.png" alt="personaconaudifonos" class="w-44">
+            <p class="mt-4 text-lg font-bold sm:text-base">Clasico, pero Moderno</p>
+            <p class="mt-2 text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <button class="mt-6 bg-gradient-to-r from-green-900 to-green-400 rounded-full px-6 py-2 text-white shadow-sm">Ver más</button>
+          </div>
+          <div class="bg-white w-11/12 h-auto px-4 py-6 grid place-items-center shadow-md">
+            <img src="images/icono2.png" alt="personaconaudifonos" class="w-32 sm:36">
+            <p class="mt-4 text-lg font-bold sm:text-base">Duración de la batería para el día</p>
+            <p class="mt-2 text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <button class="mt-6 bg-gradient-to-r from-green-900 to-green-400 rounded-full px-6 py-2 text-white shadow-sm">Ver más</button>
+          </div>
+          <div class="bg-white w-11/12 h-auto px-4 py-6 grid place-items-center shadow-md sm:col-span-2 sm:py-4 xl:col-span-1">
+            <img src="images/icono1.png" alt="personaconaudifonos" class="w-40">
+            <p class="mt-4 text-lg font-bold sm:text-base">Audio más inteligente</p>
+            <p class="mt-2 text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <button class="mt-6 bg-gradient-to-r from-green-900 to-green-400 rounded-full px-6 py-2 text-white shadow-sm">Ver más</button>
+          </div>
+        </div>
+      </section><!--FUNCIONES-->
+      <section class="bg-white h-auto pt-14 pb-8 sm:pt-16 sm:pb-12 sm:h-screen" id="fondo2">
+        <h3 class="uppercase text-green-700 text-2xl font-bold text-center sm:text-3xl sm:font-medium xl:font-semibold">Sensor de Ruido</h3>
+      	<div class="flex flex-col mt-8 mx-2 sm:flex-row sm:justify-center sm:items-center">
+      		<div>
+      			<img src="images/auriculares_2.png" alt="audifonos" class="sm:w-11/12 sm:relative sm:left-20 sm:-top-10 xl:left-16 xl:top-14">
+      		</div>
+      		<div class="mt-6 sm:w-8/12 sm:mr-4 xl:w-5/12">
+      			<p class="text-2xl text-gray-800 xl:text-3xl xl:font-semibold">Calidad de Sonido Excepcional</p>
+      			<p class="mt-4 text-gray-600 sm:text-sm xl:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      			<p class="mt-4 text-gray-600 sm:text-sm xl:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      			<div class="flex gap-5 mt-4 sm:mt-1">
+      				<button class="mt-6 bg-gradient-to-r from-green-900 to-green-400 rounded-full px-4 py-2 text-white shadow-sm xl:px-6"><i class="fab fa-apple mr-2"></i>App Store</button>
+      				<button class="mt-6 bg-gradient-to-r from-green-900 to-green-400 rounded-full px-4 py-2 text-white shadow-sm xl:px-6"><i class="fab fa-google-play mr-2"></i>Google Play</button>
+      			</div>
+      		</div>
+      	</div>
+      </section><!--SENSOR DE RUIDO-->
+      <section class="bg-gradient-to-r from-green-700 to-green-500 h-auto" id="suscribete">
+        <div class="py-10 mx-2 text-center text-white sm:grid sm:place-items-center">
+      	  <h3 class="uppercase text-xl font-bold sm:text-2xl">Suscribete para mas novedades</h3>
+      	  <p class="text-md mt-4 sm:w-9/12 xl:mt-6 xl:w-6/12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      		<form class="relative sm:w-9/12 xl:w-6/12">
+      			<input type="email" name="correo" placeholder="Ingresa tu Email" class="border-2 border-white rounded-full bg-transparent w-full mt-4 py-2 pl-6 pr-36 outline-none">
+      			<input type="submit" value="Suscribete" class="bg-white text-gray-500 py-1.5 px-6 rounded-full absolute top-5 right-1.5 hover:text-green-400 hover:pointer">
+      		</form>
+      	</div>
+      </section><!--SUSCRIBETE-->
+      <section class="bg-gray-100 h-auto mt-4 py-10 text-center" id="opiniones">
+        <h3 class="uppercase text-green-700 text-2xl font-bold sm:font-medium sm:text-3xl">Opiniones de clientes</h3>
+        <div class="grid grid-cols-1 gap-8 my-8 place-items-center sm:grid-cols-2 sm:gap-x-0 sm:gap-y-5 xl:grid-cols-3 xl:mx-20">
+          <div class="comillas bg-white w-11/12 h-auto px-4 py-6 grid place-items-center shadow-md">
+            <img src="images/user_1.png" alt="personaconaudifonos" class="rounded-full w-24 h-24 sm:w-20 sm:h-20">
+            <p class="mt-4 text-2xl text-green-500 font-bold">Pedro</p>
+            <p class="text-green-800 text-xl mt-2">★★★★★</p>
+            <p class="mt-2 text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam.</p>
+          </div>
+          <div class="comillas bg-white w-11/12 h-auto px-4 py-6 grid place-items-center shadow-md">
+            <img src="images/user_2.png" alt="personaconaudifonos" class="rounded-full w-24 h-24 sm:w-20 sm:h-20">
+            <p class="mt-4 text-2xl text-green-500 font-bold">María</p>
+            <p class="text-green-800 text-xl mt-2">★★★★★</p>
+            <p class="mt-2 text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam.</p>
+          </div>
+          <div class="comillas bg-white w-11/12 h-auto px-4 py-6 grid place-items-center shadow-md sm:col-span-2 xl:col-span-1">
+            <img src="images/user_3.png" alt="personaconaudifonos" class="rounded-full w-24 h-24 sm:w-20 sm:h-20">
+            <p class="mt-4 text-2xl text-green-500 font-bold">David</p>
+            <p class="text-green-800 text-xl mt-2">★★★★☆</p>
+            <p class="mt-2 text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Ut enim ad minim veniam.</p>
+          </div>
+        </div>
+      </section><!--OPINIONES DE CLIENTES-->
+      <section class="bg-gray-100 h-auto py-10 text-center sm:h-screen sm:pt-20" id="planes">
+        <h3 class="uppercase text-green-700 text-2xl font-bold sm:font-medium sm:text-3xl">Planes de Servicio</h3>
+        <div class="grid grid-cols-1 gap-8 my-8 place-items-center sm:grid-cols-3 sm:gap-x-0 sm:mx-4 xl:mx-20">
+          <div class="bg-white w-11/12 h-auto p-4 grid place-items-center shadow-md">
+            <p class="text-2xl text-gray-800 xl:font-semibold">Tradicionales</p>
+            <p class="mt-4 text-3xl text-green-500">$70<span class="text-lg text-green-400">/Con Factura</span></p>
+            <p class="mt-6 text-gray-500 text-sm"><i class="fas fa-check text-green-400 mr-1"></i>Manos Libres</p>
+            <p class="mt-2 text-gray-500 text-sm"><i class="fas fa-check text-green-400 mr-1"></i>Resistentes Al Agua</p>
+            <p class="mt-2 text-gray-500 text-sm"><i class="fas fa-times text-red-400 mr-1"></i>Extra Bass</p>
+            <p class="mt-2 text-gray-500 text-sm"><i class="fas fa-times text-red-400 mr-1"></i>Cancelación De Ruido</p>
+            <button class="mt-6 bg-gradient-to-r from-green-900 to-green-400 rounded-full px-6 py-1.5 text-white shadow-sm">Comprar Ya!</button>
+          </div>
+          <div class="bg-white w-11/12 h-auto p-4 grid place-items-center shadow-md border-2 border-green-400">
+            <p class="text-2xl text-gray-800 xl:font-semibold">Diadema</p>
+            <p class="mt-4 text-3xl text-green-500">$120<span class="text-lg text-green-400">/Con Factura</span></p>
+            <p class="mt-6 text-gray-500 text-sm"><i class="fas fa-check text-green-400 mr-1"></i>Manos Libres</p>
+            <p class="mt-2 text-gray-500 text-sm"><i class="fas fa-check text-green-400 mr-1"></i>Resistentes Al Agua</p>
+            <p class="mt-2 text-gray-500 text-sm"><i class="fas fa-check text-green-400 mr-1"></i>Extra Bass</p>
+            <p class="mt-2 text-gray-500 text-sm"><i class="fas fa-times text-red-400 mr-1"></i>Cancelación De Ruido</p>
+            <button class="mt-6 bg-gradient-to-r from-green-900 to-green-400 rounded-full px-6 py-1.5 text-white shadow-sm">Comprar Ya!</button>
+          </div>
+          <div class="bg-white w-11/12 h-auto p-4 grid place-items-center shadow-md">
+            <p class="text-2xl text-gray-800 xl:font-semibold">Inalámbricos</p>
+            <p class="mt-4 text-3xl text-green-500">$200<span class="text-lg text-green-400">/Con Factura</span></p>
+            <p class="mt-6 text-gray-500 text-sm"><i class="fas fa-check text-green-400 mr-1"></i>Manos Libres</p>
+            <p class="mt-2 text-gray-500 text-sm"><i class="fas fa-check text-green-400 mr-1"></i>Resistentes Al Agua</p>
+            <p class="mt-2 text-gray-500 text-sm"><i class="fas fa-check text-green-400 mr-1"></i>Extra Bass</p>
+            <p class="mt-2 text-gray-500 text-sm"><i class="fas fa-check text-green-400 mr-1"></i>Cancelación De Ruido</p>
+            <button class="mt-6 bg-gradient-to-r from-green-900 to-green-400 rounded-full px-6 py-1.5 text-white shadow-sm">Comprar Ya!</button>
+          </div>
+        </div>
+      </section><!--PLANES DE SERVICIOS-->
+      <section class="bg-gray-100 h-auto py-10 grid grid-cols-1 place-items-center sm:grid-cols-2 sm:px-4 sm:pb-36 xl:mx-18" id="contactos">
+        <div>
+          <img src="images/form_img.png" alt="audifonos" class="sm:w-11/12 sm:relative sm:left-6 xl:left-20">
+        </div>
+        <div class="bg-white w-11/12 h-auto p-4 mt-6 shadow-md xl:w-9/12 xl:p-8">
+          <h3 class="uppercase text-green-700 text-2xl font-bold xl:text-3xl xl:font-semibold">Contactos</h3>
+          <form class="mt-10 text-sm text-gray-800 text-gray-600">
+            <input type="text" name="" id="cus" class="border-b-2 border-gray-100 outline-none w-11/12 focus:border-green-400">
+            <label class="relative bottom-6 focus:text-sm">Nombre</label>
+            <br/><br/>
+            <input type="email" name="" id="cus" class="border-b-2 border-gray-100 outline-none w-11/12 focus:border-green-400">
+            <label class="relative bottom-6 focus:text-sm">Email</label>
+            <br/><br/>
+            <input type="tel" name="" id="cus" class="border-b-2 border-gray-100 outline-none w-11/12 focus:border-green-400">
+            <label class="relative bottom-6 focus:text-sm">Teléfono</label>
+            <br/><br/>
+            <input type="text" class="border-b-2 border-gray-100 outline-none w-11/12 focus:border-green-400" id="cus">
+            <label class="relative bottom-6 focus:text-sm">Mensaje</label>
+            <br/><br/>
+            <input type="submit" class="mt-6 bg-gradient-to-r from-green-900 to-green-400 rounded-full px-6 py-1.5 text-white shadow-sm hover:pointer" value="Enviar" name="enviar">
+          </form>
+        </div>
+      </section><!--CONTACTOS Y FORMULARIO-->
+    </main>
+    <footer class="h-auto text-white">
+    	<div class="flex flex-col gap-10 pt-14 pb-8 px-3.5 sm:items-center sm:justify-between sm:flex-row sm:mx-4 xl:justify-around">
+    	<div class="flex flex-col gap-10 sm:w-6/12 sm:flex-row sm:gap-x-14">
+    		<div>
+    			<h4 class="text-xl font-bold underline mb-4 xl:text-2xl">Noticias E Información</h4>
+    			<p class="sm:text-sm xl:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    		</div>
+    		<div class="sm:w-full">
+    			<h4 class="text-xl font-bold underline mb-4 xl:text-2xl">Buscanos En</h4>
+    			<div class="flex flex-col gap-2 sm:text-md">
+    				<a href="#" class="hover:text-green-400">Facebook</a>
+    				<a href="#" class="hover:text-green-400">Instagram</a>
+    				<a href="#" class="hover:text-green-400">Pinterest</a>
+    				<a href="#" class="hover:text-green-400">Twitter</a>
+    			</div>
+    		</div>
+    	</div>
+    	<div>
+    		<h4 class="text-xl font-bold underline mb-4 xl:text-2xl">Mas Información</h4>
+    		<div class="flex items-center gap-3">
+    			<div>
+    				<i class="fas fa-phone text-green-400 text-base bg-white p-3 rounded-full"></i>
+    			</div>
+    			<div class="sm:text-sm xl:text-base">
+    				<p>987-654-321</p>
+    				<p>13-456-789</p>
+    			</div>
+    		</div>
+    		<div class="flex items-center gap-3 mt-1.5">
+    			<div>
+    				<i class="fas fa-envelope text-green-400 text-base bg-white p-3 rounded-full"></i>
+    			</div>
+    			<div class="sm:text-sm xl:text-base">
+    				<p>audioyack@gmail.com</p>
+    				<p>audioyack@hotmail.com</p>
+    			</div>
+    		</div>
+    		<div class="flex items-center gap-3 mt-1.5">
+    			<div>
+    				<i class="fas fa-map-marker-alt text-green-400 text-base bg-white px-3.5 py-3 rounded-full"></i>
+    			</div>
+    			<div class="sm:text-sm xl:text-base">
+    				<p>Valencia, Venezuela - 123456</p>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    	<hr class="border-green-600" />
+    	<p class="text-center py-4">© Copyright 2021</p>
+    </footer>
+  </div>
+
+<script>
+
+  let botoncito = document.getElementById("boton");
+  let link = document.getElementById("enlace");
+  let equis = document.getElementById("equis");
+
+equis.addEventListener("click", () => {
+
+  equis.classList.add("hidden");
+  botoncito.classList.remove("hidden");
+  link.classList.toggle("hidden");
+})
+
+botoncito.addEventListener("click", () => {
+
+link.classList.toggle("hidden");
+equis.classList.remove("hidden");
+botoncito.classList.add("hidden");
+
+})
+
+</script>
+
+</body>
+</html>
